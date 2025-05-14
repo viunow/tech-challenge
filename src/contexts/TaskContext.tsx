@@ -17,10 +17,10 @@ interface TaskContextType {
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
-export const useTaskContext = () => {
+export const useTaskContext = (): TaskContextType => {
   const context = useContext(TaskContext);
   if (!context) {
-    console.error("useTaskContext deve ser usado em um TaskProvider");
+    throw new Error("useTaskContext deve ser usado em um TaskProvider");
   }
   return context;
 };
