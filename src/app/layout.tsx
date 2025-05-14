@@ -14,7 +14,7 @@ export function generateMetadata(): Metadata {
     title: "Gerenciador de Tarefas",
     description:
       "Gerenciador de Tarefas feito para o desafio técnico da Lidere",
-    metadataBase: new URL("https://gerenciador-de-tarefas.vercel.app"),
+    metadataBase: new URL("https://gerenciador-de-tarefas-teal.vercel.app"),
     openGraph: {
       title: "Gerenciador de Tarefas",
       description:
