@@ -40,7 +40,7 @@ export default function TaskItem({ task, onEdit }: TaskItemProps) {
   return (
     <Card className={`mb-3 ${task.completed ? "opacity-75" : ""}`}>
       <CardContent className="px-4 py-3 transition-colors duration-300 border-2 rounded-md hover:border-b-purple">
-        <Box className="flex items-start gap-3">
+        <Box className="flex items-start gap-1">
           <Checkbox
             checked={task.completed}
             onChange={() => toggleTask(task.id)}
@@ -48,14 +48,22 @@ export default function TaskItem({ task, onEdit }: TaskItemProps) {
           />
 
           <Box className="flex-1">
-            <Typography
-              variant="h6"
-              className={`text-lg font-medium ${
-                task.completed ? "line-through text-gray-500" : ""
-              }`}
-            >
-              {task.title}
-            </Typography>
+            <div className="flex flex-row items-center justify-between">
+              <Typography
+                variant="h6"
+                className={`text-lg font-medium ${
+                  task.completed ? "line-through text-gray-500" : ""
+                }`}
+              >
+                {task.title}
+              </Typography>
+              <Chip
+                label={task.completed ? "Concluída" : "Pendente"}
+                size="small"
+                color={task.completed ? "success" : "warning"}
+                variant="outlined"
+              />
+            </div>
 
             {task.description && (
               <Typography
@@ -68,13 +76,13 @@ export default function TaskItem({ task, onEdit }: TaskItemProps) {
             )}
 
             <Box className="flex items-center justify-between mt-2">
-              <Box className="flex items-center gap-2">
-                <Chip
+              <Box className="flex flex-col items-start gap-2">
+                {/* <Chip
                   label={task.completed ? "Concluída" : "Pendente"}
                   size="small"
                   color={task.completed ? "success" : "warning"}
                   variant="outlined"
-                />
+                /> */}
                 <Typography variant="caption" color="text.secondary">
                   Criada em: {formatDate(task.createdAt)}
                 </Typography>
